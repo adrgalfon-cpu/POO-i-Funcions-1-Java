@@ -1,7 +1,7 @@
 import java.util.Locale;
 import java.util.Scanner;
 public class Edat {
-    public static void main(){
+    public static void main(String[] args){
         System.out.println("================================================================================");
         System.out.println("=============================Ets Major d'Edat?==================================");
         System.out.println("================================================================================");
@@ -34,7 +34,7 @@ public class Edat {
             System.out.println("la edat ha de ser positiva. Intenta-ho de nou");
             return  edatUsuari();
         }
-        System.out.println("¿Segur?");
+        System.out.println("Segur?");
         System.out.println("SI/NO");
         String confirmar = scanner.next();
         confirmar = confirmar.toLowerCase();

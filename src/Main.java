@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
-
         System.out.println("Selecciona el teu exercici");
         System.out.println("1- Calculadora");
         System.out.println("2- Major d'edat");
@@ -9,13 +8,30 @@ public class Main{
     }
     public static void selector(){
         Scanner scanner = new Scanner(System.in);
+        String[] args = new String[0];
+        boolean tancar = false;
         int exercici = scanner.nextInt();
         switch (exercici){
             case 1:
-                Calculadora.menu();
+                Calculadora.main(args);
+                break;
             case 2:
-                Edat.main();
-
+                Edat.main(args);
+                break;
+            case 9:
+                tancar=true;
+                break;
+            default:
+                System.out.println("Selecciona un Numero d'Exercici valid");
+                break;
+        }
+        if(!tancar) {
+            System.out.println();
+            System.out.println("Exercici Finalitzat");
+            System.out.println();
+            main(args);
+        }else{
+            System.out.println("Finalitzant Programa");
         }
     }
 }
