@@ -18,6 +18,9 @@ public class Main{
             case 2:
                 Edat.main(args);
                 break;
+            case 3:
+                Notes.main(args);
+                break;
             case 9:
                 tancar=true;
                 break;
