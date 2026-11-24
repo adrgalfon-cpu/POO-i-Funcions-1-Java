@@ -26,6 +26,7 @@ public class Notes {
                 String Linea = reader2.readLine();
                 notes[i] = Integer.parseInt(Linea);
             }
+            reader2.close();
             return notes;
         } catch (FileNotFoundException e) {
             // Sé que no he de fer aixó pero, per algún motiu, decideixo fer-ho.
@@ -46,7 +47,7 @@ public class Notes {
                 for(int i = 0; i < input.length(); i++){
                     if(input.charAt(i)>'9'||input.charAt(i)<'0'){
                         esInt = false;
-                        System.out.println("algo falla");
+                        System.out.println("Sortint de l'editor");
                         break;
                     }
                 }
@@ -63,12 +64,37 @@ public class Notes {
         }
     }
     public static int mitja(){
-        int[] notes = reader();
-        int mitja = 0;
-        for (int i = 0; i < notes.length; i++) {
-            mitja+=notes[i];
+        try {
+            int[] notes = reader();
+            int mitja = 0;
+            for (int i = 0; i < notes.length; i++) {
+                mitja += notes[i];
+            }
+            return mitja / notes.length;
+        }catch (ArithmeticException e){
+            return 0;
         }
-        return mitja/notes.length;
+    }
+    public static void comprovar(){
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int indexNota = scanner.nextInt();
+            int[] notes = reader();
+            if (notes[indexNota - 1] >= 5) {
+                System.out.println("La Nota: " + indexNota + " Està Aprovada!!!");
+            } else {
+                System.out.println("La Nota: " + indexNota + " Està Suspesa. Posa't les piles");
+            }
+            menu();
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("""
+                    No existeix aquesta nota.
+                    Si vols comprovar les notes que tens registrades selecciona la opció 2.
+                    El numero de nota és el numero junt a la paraula "Numero" avans de els dos punts ":"
+                    Per exemple "Numero 123 :"
+                                        ^^^
+                    """);
+        }
     }
     public static void menu(){
         Scanner scanner = new Scanner(System.in);
@@ -80,6 +106,12 @@ public class Notes {
         int menu = scanner.nextInt();
         switch (menu){
             case 1:
+                System.out.println("""
+                                                                    vvvvvvvvvvvvvvvvvvvvv
+                        Introdueix les Notes que vulguis introduir  ¡¡¡LINEA PER LINEA!!!
+                                                                    ^^^^^^^^^^^^^^^^^^^^^
+                        Per acabar introdueix una lletra qualsevol
+                        """);
                 writer();
                 menu();
                 break;
@@ -99,6 +131,8 @@ public class Notes {
                 menu();
                 break;
             case 4:
+                System.out.println("Introdueix el Numero de la Nota a comprovar:");
+                comprovar();
                 menu();
                 break;
             case 5:
@@ -107,10 +141,12 @@ public class Notes {
                 String confirmar = scanner.next();
                 confirmar = confirmar.toLowerCase();
                 if (confirmar.equals("si")){
+                    System.out.println("Sortint del programa");
                     break;
                 }
                 else{
                     menu();
+                    break;
                 }
             default:
                 System.out.println("Opció No Valida");

@@ -70,7 +70,7 @@ public class Calculadora {
         double numero2 = scanner.nextDouble();
         if (numero1!=0&&numero2!=0) {
             if (numero1 == (int) numero1 && numero2 == (int) numero2) {
-                System.out.println("El resultat de dividir " + (int) numero1 + " i " + (int) numero2 + " és: " + ((int) numero1 / (int) numero2));
+                System.out.println("El resultat de dividir " + (int) numero1 + " i " + (int) numero2 + " és: " + (numero1 / numero2));
             } else {
                 System.out.println("El resultat de dividir " + numero1 + " i " + numero2 + " és: " + (numero1 / numero2));
             }
