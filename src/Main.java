@@ -4,6 +4,7 @@ public class Main{
         System.out.println("Selecciona el teu exercici");
         System.out.println("1- Calculadora");
         System.out.println("2- Major d'edat");
+        System.out.println("3- Notes");
         selector();
     }
     public static void selector(){
