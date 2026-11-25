@@ -98,11 +98,13 @@ public class Notes {
     }
     public static void menu(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Seleccionar Opció");
-        System.out.println("1. Escriure notes (Cuidado, les notes són permanents)");
-        System.out.println("2. Veure les teves Notes");
-        System.out.println("3. Veure la mitja");
-        System.out.println("4. Comprobar si una nota está aprobada");
+        System.out.println("""
+                Seleccionar Opció
+                1. Escriure notes (Cuidado, les notes són permanents)
+                2. Veure les teves Notes
+                3. Veure la mitja
+                4. Comprobar si una nota està aprobada
+                """);
         int menu = scanner.nextInt();
         switch (menu){
             case 1:

@@ -1,10 +1,15 @@
 import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
-        System.out.println("Selecciona el teu exercici");
-        System.out.println("1- Calculadora");
-        System.out.println("2- Major d'edat");
-        System.out.println("3- Notes");
+        System.out.println("""
+                Selecciona el teu exercici
+                ---------------------------
+                1- Calculadora
+                2- Major d'edat
+                3- Notes 
+                
+                9- Sortir del Programa
+                        """);
         selector();
     }
     public static void selector(){
